@@ -28,6 +28,8 @@ export default new Vuex.Store({
         items.forEach(pokemon => {
           axios.get(pokemon.url).then(res => {
             pokemon.image = res.data.sprites.front_default
+            pokemon.experience = res.data.base_experience
+            pokemon.abilities = res.data.abilities.map(ability => ability.ability.name)
             pokemons.push(pokemon)
           })
         })

@@ -1,6 +1,9 @@
 <template>
-  <grid
-    :pokemons="$store.state.pokemons" />
+  <div>
+    <h1>PokeApi</h1>
+    <grid
+      :pokemons="$store.state.pokemons" />
+  </div>
 </template>
 
 <script>

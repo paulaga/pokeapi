@@ -6,7 +6,7 @@
         :id="+pokemon.id"
         :image="pokemon.image"
         :name="pokemon.name"
-        :url="pokemon.url"
+        @click.native="onPokemonClick(pokemon)"
       />
     </li>
   </ul>
@@ -34,15 +34,44 @@
 
 <style lang="scss">
   ul {
-    font-family: 'Roboto', sans-serif;
-    display: grid;
-    width: 80%;
-    margin: 0 auto;
-    grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
-    grid-gap: 10px;
-    text-align: center;
-  }
-  li {
     list-style: none;
+    width: 80%;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 0;
+    img {
+      width: 100px;
+      height: auto;
+    }
+    .container {
+      height: 100%;
+      padding: 10px;
+    }
+    .name-wrapper {
+      margin: 5px auto;
+      padding: 8px 0;
+      color: #FFF;
+      background: rgba(44, 62, 80, 0.9);
+      border-radius: 20px;
+      cursor: pointer;
+      &:hover {
+        background: #FFF;
+        color: rgba(44, 62, 80, 0.9);
+        border-radius: 5px;
+      }
+    }
+    .name {
+      text-transform: uppercase;  
+      font-weight: 800;
+    }
+    .data-wrapper {
+      display: none;
+    }
+  }
+  @media(max-width:678px){
+    ul {
+      grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
+    }
   }
 </style>

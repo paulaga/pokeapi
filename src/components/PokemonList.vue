@@ -2,7 +2,19 @@
   <div class="container"
     :style="{'background': randomColor}">
     <img :src="image">
-    <p class="name">{{name}}</p>
+    <div class="name-wrapper">
+      <p class="name">{{name}}</p>
+    </div>
+    <div class="data-wrapper">
+      <h2 v-if="experience">Experience</h2>
+      <p>{{experience}}</p>
+    </div>
+    <div class="data-wrapper">
+      <h2 v-if="abilities">Abilities</h2>
+      <ul>
+        <li v-for="(ability, index) in abilities" :key="index">{{ability}}</li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -12,8 +24,9 @@
     props: {
       id: Number,
       name: String,
-      url: String,
       image: String,
+      experience: Number,
+      abilities: Array
     },
     data() {
       return {
@@ -24,19 +37,13 @@
 </script>
 
 <style lang="scss">
-img {
-  width: 100px;
-  height: auto;
-}
-.container {
-  height: 100%;
-  padding: 10px;
-}
-.name {
-  text-transform: uppercase;
-  color: #FFF;
-  font-weight: 800;
-  text-shadow: 1px 1px 2px #a9a0a0b3;
-}
-
+  h2 {
+    font-weight: 600;
+    font-size: 1.2em;
+    color: #1a9fae;
+    margin-bottom: 10px;
+  }
+  .data-wrapper {
+    margin-bottom: 30px;
+  }
 </style>
