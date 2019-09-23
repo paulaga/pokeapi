@@ -1,24 +1,20 @@
 <template>
-  <div class="home">
-    <p>la home</p>
-  </div>
+  <grid
+    :pokemons="$store.state.pokemons" />
 </template>
 
 <script>
-import Grid from '@/components/Grid.vue'
+  import Grid from '@/components/Grid.vue'
 
-export default {
-  name: 'home',
-  components: {
-    Grid
-  },
-  data () {
-    return {
-      pokemons: []
+  export default {
+    name: 'Home',
+    components: {
+      Grid
+    },
+    created () {
+      if (!this.$store.state.pokemons.length) {
+        this.$store.dispatch('loadPokemons')
+      }
     }
-  },
-  mounted () {
-    this.pokemons = []
   }
-}
 </script>

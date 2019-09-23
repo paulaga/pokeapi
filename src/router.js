@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import GridView from './views/GridView.vue'
+import PokemonDetail from './views/PokemonDetail.vue'
 
 Vue.use(Router)
 
@@ -13,9 +13,9 @@ export default new Router({
       component: Home
     },
     {
-      path: '/grid',
-      name: 'grid',
-      component: GridView
+      path: '/pokemon/:name',
+      name: 'pokemon-detail',
+      component: PokemonDetail
     },
     {
       path: '/about',
