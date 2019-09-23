@@ -13,8 +13,6 @@ export default new Vuex.Store({
   },
   mutations: {
     setPokemons (state, payload) {
-      // eslint-disable-next-line no-console
-      console.log('mutations- ' + Object.keys(payload[0]))
       state.pokemons = payload
     },
     setCurrentPokemon (state, payload) {
@@ -23,18 +21,18 @@ export default new Vuex.Store({
   },
   actions: {
     loadPokemons (context) {
-      let pokemons = []
+      const pokemons = []
       axios.get(`https://pokeapi.co/api/v2/pokemon`)
-        .then(res => {
-          pokemons = res.data.results.slice(0, 20)
-          pokemons.forEach(pokemon => {
-            axios.get(pokemon.url).then(res => {
-              pokemon.image = res.data.sprites.front_default
-              pokemons.push(pokemon, pokemon.image)
-            })
+      .then(res => {
+        let items = res.data.results.slice(0, 20)
+        items.forEach(pokemon => {
+          axios.get(pokemon.url).then(res => {
+            pokemon.image = res.data.sprites.front_default
+            pokemons.push(pokemon)
           })
         })
-        .then(() => context.commit('setPokemons', pokemons))
+      })
+      .then(() => context.commit('setPokemons', pokemons))
     },
     setCurrentPokemon (context, payload) {
       context.commit('setCurrentPokemon', payload)
