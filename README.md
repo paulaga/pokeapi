@@ -1,29 +1,18 @@
-# pokemon_grid-starter
+# Pokemon Vue starter
+![alt text](https://emojis.slackmojis.com/emojis/images/1472722064/1126/poke_pika.png?1472722064) ![alt text](https://emojis.slackmojis.com/emojis/images/1472722300/1128/poke_pika_wink.png?1472722300) ![alt text](https://emojis.slackmojis.com/emojis/images/1472722064/1126/poke_pika.png?1472722064)
 
-## Project setup
+Project created using GUI
+```
+vue ui
+```
+
+### Project setup:
+
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Compile for development:
 ```
 npm run serve
 ```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
